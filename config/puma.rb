@@ -1,6 +1,6 @@
-workers 2
-threads 0, 16
-bind 'tcp://0.0.0.0:10004'
+workers 1
+threads 0, 8
+bind 'tcp://0.0.0.0:10001'
 environment 'production'
 daemonize true
 
