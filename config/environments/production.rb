@@ -68,4 +68,16 @@ Rails.application.configure do
   # care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'redmine@huantengsmart.com', host: 'huantengsmart.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              Errbit::Config.smtp_address,
+  port:                 Errbit::Config.smtp_port,
+  domain:               Errbit::Config.smtp_domain,
+  user_name:            Errbit::Config.smtp_user_name,
+  password:             Errbit::Config.smtp_password,
+  authentication:       Errbit::Config.smtp_authentication,
+  enable_starttls_auto: true,
+  ssl: true
+  }
 end
