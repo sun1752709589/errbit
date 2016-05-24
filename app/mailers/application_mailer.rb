@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'redmine@huantengsmart.com'
+  default from: 'errbit@huantengsmart.com'
 end
