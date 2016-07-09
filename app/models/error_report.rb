@@ -34,8 +34,8 @@ class ErrorReport
   end
 
   def rails_env
-    rails_env = server_environment['environment-name']
-    rails_env = 'development' if rails_env.blank?
+    rails_env = Rails.env
+    rails_env = 'production' if rails_env.blank?
     rails_env
   end
 
