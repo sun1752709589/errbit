@@ -158,7 +158,12 @@ class App
     if notify_all_users
       (User.all.map(&:email).reject(&:blank?) + watchers.map(&:address)).uniq
     else
-      watchers.map(&:address)
+      emails = []
+      email_mailer_groups.each do |group_id|
+        group = MailerGroup.where(id: group_id).to_a.first
+        emails += group.all_emails if group
+      end
+      emails
     end
   end
 

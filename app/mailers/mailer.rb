@@ -24,7 +24,7 @@ class Mailer < ActionMailer::Base
                    'Error-Id'    => @notice.err_id
     Rails.logger.info "--sunyafei====@app=#{@app.inspect}-------"
     Rails.logger.info "--sunyafei====emails=#{@app.emails_to_send.inspect}-------"
-    mail to:      @app.emails_to_send,
+    mail to:      @app.notification_recipients,
          subject: "#{count}[#{@app.name}][#{@notice.environment_name}] #{@notice.message.truncate(50)}"
   end
 
