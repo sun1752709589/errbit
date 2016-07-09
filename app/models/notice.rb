@@ -55,7 +55,7 @@ class Notice
 
   def environment_name
     n = server_environment['server-environment'] || server_environment['environment-name']
-    n.blank? ? 'development' : n
+    n.blank? ? 'production' : n
   end
 
   def component
