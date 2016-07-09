@@ -23,7 +23,7 @@ class Mailer < ActionMailer::Base
                    'Environment' => @notice.environment_name,
                    'Error-Id'    => @notice.err_id
 
-    mail to:      @app.notification_recipients,
+    mail to:      @app.emails_to_send,
          subject: "#{count}[#{@app.name}][#{@notice.environment_name}] #{@notice.message.truncate(50)}"
   end
 

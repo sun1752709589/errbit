@@ -13,6 +13,7 @@ class App
   field :notify_all_users, type: Boolean, default: false
   field :notify_on_errs, type: Boolean, default: true
   field :email_at_notices, type: Array, default: Errbit::Config.email_at_notices
+  field :email_mailer_groups, type: Array, default: []
 
   # Some legacy apps may have string as key instead of BSON::ObjectID
   # identity :type => String
@@ -53,6 +54,19 @@ class App
   scope :watched_by, lambda { |user|
     where watchers: { "$elemMatch" => { "user_id" => user.id } }
   }
+
+  def emails_to_send
+    emails = []
+    if notify_all_users
+      emails = notification_recipients
+    else
+      email_mailer_groups.each do |group_id|
+        group = MailerGroup.where(id: group_id).to_a.first
+        emails += group.all_emails if group
+      end
+    end
+    emails.compact.uniq
+  end
 
   def build_notice_fingerprinter
     # no need to build a notice_fingerprinter if we already have one
