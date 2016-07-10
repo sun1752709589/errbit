@@ -26,7 +26,7 @@
   =t('.watchers')
   %span.click_span=t('.show_hide')
 #watchers_div
-  - if app.notify_all_users
+  - if false
     %table.watchers
       %thead
         %tr
@@ -37,10 +37,10 @@
         %tr
           %th=t('.user_or_email')
       %tbody
-        - app.watchers.each do |watcher|
+        - app.notification_recipients.each do |watcher|
           %tr
-            %td= watcher.label
-        - if app.watchers.none?
+            %td= watcher
+        - if app.notification_recipients.none?
           %tr
             %td
               %em= t('.no_watcher')
