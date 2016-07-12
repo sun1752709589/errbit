@@ -1,0 +1,32 @@
+- content_for :title, mailer_group.name
+- content_for :action_bar do
+  - if current_user.admin?
+    = ''
+
+%table.single_user
+  %tr
+    %th Name
+    %td.main= mailer_group.name
+  %tr
+    %th All_Emails
+    %td= mailer_group.all_emails
+%br
+%br
+%hr
+= form_for mailer_group, url: add_user_mailer_group_path, method: 'post' do |f|
+  = errors_for mailer_group
+  .required
+    = f.label :email
+    = f.text_field :email
+  %div.buttons= f.submit '添加用户到该分组'
+%hr
+%br
+%br
+%hr
+= form_for mailer_group, url: remove_user_mailer_group_path, method: 'delete' do |f|
+  = errors_for mailer_group
+  .required
+    = f.label :email
+    = f.text_field :email
+  %div.buttons= f.submit '从此分组删除用户'
+%hr

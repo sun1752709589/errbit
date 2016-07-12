@@ -69,4 +69,13 @@
 - else
   %h3.clear=t('.no_error_yet')
   = render 'configuration_instructions', :app => app
-
+%hr
+%h1
+  添加通知组
+= form_for app, url: add_mailer_group_app_path, method: 'post' do |f|
+  = errors_for app
+  .required
+    = f.label :add_mailer_group
+    = f.select(:current_app_version, MailerGroup.all.to_a.collect {|u| [u.name, u.id.to_s]}, :prompt => 'Select')
+  %div.buttons= f.submit '添加通知组'
+%hr

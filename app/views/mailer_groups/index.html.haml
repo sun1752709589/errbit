@@ -1,0 +1,18 @@
+- content_for :title, 'MailerGroups'
+- content_for :action_bar do
+  %span
+    = link_to(new_mailer_group_path) do
+      %i.fa.fa-plus-circle
+      = t('.new_group')
+
+%table.groups
+  %thead
+    %tr
+      %th Group_Name
+      %th All_Emails
+  %tbody
+    - mailer_groups.each do |group|
+      %tr.user_list
+        %td.nowrap= link_to group.name, mailer_group_path(group)
+        %td= group.all_emails
+

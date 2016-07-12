@@ -86,6 +86,17 @@ class AppsController < ApplicationController
     redirect_to edit_app_path(app)
   end
 
+  def add_mailer_group
+    group_id = params['app']['current_app_version']
+    mailer_group = MailerGroup.where(id: group_id).to_a.first
+    if app && mailer_group
+      app.email_mailer_groups << mailer_group.id.to_s
+      app.email_mailer_groups.uniq!
+      app.save
+    end
+    redirect_to app_url(app)
+  end
+
 protected
 
   def initialize_subclassed_notification_service

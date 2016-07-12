@@ -1,0 +1,9 @@
+- content_for :title, 'New Mailer Group'
+- content_for :action_bar, link_to('cancel', mailer_groups_path, :class => 'button')
+
+= form_for mailer_group do |f|
+  .required
+    = f.label :name
+    = f.text_field :name
+
+  %div.buttons= f.submit 'Add Mailer Group'

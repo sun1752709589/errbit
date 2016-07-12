@@ -4,6 +4,7 @@ class MailerGroup
 
   field :user_ids, type: Array, default: []
   field :name
+  field :email, type: String, default: ''
 
   def all_emails
     emails = []

@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   match '/notifier_api/v2/notices' => 'notices#create', via: [:get, :post]
   get '/locate/:id' => 'notices#locate', :as => :locate
 
+  resources :mailer_groups do
+    member do
+      post :add_user
+      delete :remove_user
+    end
+  end
   resources :notices, only: [:show]
   resources :users do
     member do
@@ -50,6 +56,7 @@ Rails.application.routes.draw do
     resources :watchers, only: [:destroy, :update]
     member do
       post :regenerate_api_key
+      post :add_mailer_group
     end
   end
 

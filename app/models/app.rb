@@ -163,6 +163,7 @@ class App
         group = MailerGroup.where(id: group_id).to_a.first
         emails += group.all_emails if group
       end
+      emails.uniq!
       emails
     end
   end
