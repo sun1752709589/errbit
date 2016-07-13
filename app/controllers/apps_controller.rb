@@ -92,6 +92,7 @@ class AppsController < ApplicationController
     if app && mailer_group
       app.email_mailer_groups << mailer_group.id.to_s
       app.email_mailer_groups.uniq!
+      app.current_app_version = ''
       app.save
     end
     redirect_to app_url(app)
