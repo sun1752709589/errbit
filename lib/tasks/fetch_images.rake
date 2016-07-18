@@ -6,7 +6,8 @@ namespace :fetch_images do
     page = agent.get('http://cn.bing.com/')
     url = /http:\/\/s\.cn\.bing\.net.*?\.jpg/.match(page.body)[0]
     if url && url.size > 10
-      Mailer.bing(['syf@huantengsmart.com', '1289568180@qq.com'], url).deliver_now
+      Mailer.bing(['syf@huantengsmart.com', 'accw@venturepharm.net'], url).deliver_now
+      Mailer.bing(['343776794@qq.com'], url).deliver_now
       # Mailer.bing(['syf@huantengsmart.com', 'email4sun@qq.com'], url).deliver_now
     end
   end
