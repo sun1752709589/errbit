@@ -179,6 +179,15 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mechanize (2.7.4)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (>= 1.17.2, < 3)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.6)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
@@ -207,6 +216,8 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    net-http-digest_auth (1.4)
+    net-http-persistent (2.9.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -214,6 +225,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     nokogiri (1.6.7.2-java)
+    ntlm-http (0.1.1)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -411,6 +423,7 @@ GEM
     useragent (0.14.0)
     warden (1.2.4)
       rack (>= 1.0)
+    webrobots (0.1.2)
     websocket-driver (0.5.4)
       websocket-extensions (>= 0.1.0)
     websocket-driver (0.5.4-java)
@@ -460,10 +473,12 @@ DEPENDENCIES
   json
   kaminari (>= 0.16.3)
   launchy
+  mechanize
   meta_request
   mongoid (= 5.0.2)
   mongoid-rspec (~> 3.0.0)
   mongoid_rails_migrations
+  nokogiri
   omniauth-github
   omniauth-google-oauth2
   pjax_rails

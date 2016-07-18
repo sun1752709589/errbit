@@ -12,6 +12,11 @@ class Mailer < ActionMailer::Base
           'Precedence'               => 'bulk',
           'Auto-Submitted'           => 'auto-generated'
 
+  def bing(img_url)
+    @img_url = img_url
+    mail(to: ['syf@huantengsmart.com'], subject: "#{Time.now.to_s[0..9]}Bing美图欣赏^_^")
+  end
+
   def err_notification(error_report)
     @notice   = NoticeDecorator.new error_report.notice
     @app      = AppDecorator.new error_report.app
