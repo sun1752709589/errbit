@@ -14,7 +14,9 @@ class Mailer < ActionMailer::Base
 
   def bing(mail_to, img_url)
     @img_url = img_url
-    mail(to: mail_to, subject: "#{Time.now.to_s[0..9]} Bing美图欣赏^_^")
+    mail(to: mail_to, subject: "#{Time.now.to_s[0..9]} Bing美图欣赏^_^") do |format|
+      format.html { render layout: false }
+    end
   end
 
   def err_notification(error_report)
