@@ -11,4 +11,16 @@ namespace :fetch_images do
       # Mailer.bing(['syf@huantengsmart.com', 'email4sun@qq.com'], url).deliver_now
     end
   end
+  desc "every day 9:00 am fetch 163 news"
+  task :wangyi do
+    Rake::Task[:environment].invoke
+    agent = Mechanize.new
+    page = agent.get('http://c.m.163.com/nc/article/headline/T1348647853363/0-20.html')
+    news = JSON.parse(page.body)
+    news_title_arr = []
+    news.first.last.each do |item|
+      news_title_arr << item['title']
+    end
+    Mailer.wangyi(['syf@huantengsmart.com'], news_title_arr).deliver_now
+  end
 end

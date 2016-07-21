@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1 align='center'>新闻速递</h1>
+    <p>
+      <% @news.each do |item| %>
+        <%= item %>
+        <br/>
+        <br/>
+      <% end %>
+    </p>
+  </body>
+</html>

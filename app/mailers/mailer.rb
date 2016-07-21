@@ -19,6 +19,13 @@ class Mailer < ActionMailer::Base
     end
   end
 
+  def wangyi(mail_to, news)
+    @news = news
+    mail(to: mail_to, subject: "#{Time.now.to_s[0..9]}-新闻速递") do |format|
+      format.html { render layout: false }
+    end
+  end
+
   def err_notification(error_report)
     @notice   = NoticeDecorator.new error_report.notice
     @app      = AppDecorator.new error_report.app
