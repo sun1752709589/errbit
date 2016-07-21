@@ -19,7 +19,7 @@ namespace :fetch_images do
     news = JSON.parse(page.body)
     news_title_arr = []
     news.first.last.each do |item|
-      news_title_arr << item['title']
+      news_title_arr << [item['title'], item['url']]
     end
     Mailer.wangyi(['syf@huantengsmart.com'], news_title_arr).deliver_now
   end
