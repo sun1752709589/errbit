@@ -21,6 +21,6 @@ namespace :fetch_images do
     news.first.last.each do |item|
       news_title_arr << [item['title'], item['url']]
     end
-    Mailer.wangyi(['syf@huantengsmart.com'], news_title_arr).deliver_now
+    Mailer.wangyi(['syf@huantengsmart.com', 'accw@venturepharm.net'], news_title_arr).deliver_now
   end
 end
