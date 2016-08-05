@@ -16,7 +16,7 @@ Rails.application.configure do
   # care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_options = {from: 'errbit@huantengsmart.com', host: 'huantengsmart.com'}
+  config.action_mailer.default_options = {from: 'redmine@mail.huantengsmart.com', host: 'mail.huantengsmart.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   address:              Errbit::Config.smtp_address,
@@ -25,8 +25,9 @@ Rails.application.configure do
   user_name:            Errbit::Config.smtp_user_name,
   password:             Errbit::Config.smtp_password,
   authentication:       Errbit::Config.smtp_authentication,
-  enable_starttls_auto: true,
-  ssl: true
+  enable_starttls_auto: false,
+  ssl: true,
+  openssl_verify_mode: 'none'
 }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

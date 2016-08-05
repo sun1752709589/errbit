@@ -5,7 +5,7 @@ require Rails.root.join('config/routes.rb')
 class Mailer < ActionMailer::Base
   helper ApplicationHelper
 
-  default :from                      => 'errbit@huantengsmart.com',
+  default :from                      => 'redmine@mail.huantengsmart.com',
           'X-Errbit-Host'            => 'errbit.huantengsmart.com',
           'X-Mailer'                 => 'Errbit',
           'X-Auto-Response-Suppress' => 'OOF, AutoReply',
