@@ -6,9 +6,7 @@ namespace :fetch_images do
     page = agent.get('http://cn.bing.com/')
     url = /http:\/\/s\.cn\.bing\.net.*?\.jpg/.match(page.body)[0]
     if url && url.size > 10
-      Mailer.bing(['syf@huantengsmart.com', 'accw@venturepharm.net'], url).deliver_now
-      Mailer.bing(['343776794@qq.com'], url).deliver_now
-      # Mailer.bing(['syf@huantengsmart.com', 'email4sun@qq.com'], url).deliver_now
+      Mailer.bing(['syf@huantengsmart.com', 'accw@venturepharm.net', 'lishaohua@kangaiweishi.com'], url).deliver_now
     end
   end
   desc "every day 9:00 am fetch 163 news"
@@ -21,6 +19,6 @@ namespace :fetch_images do
     news.first.last.each do |item|
       news_title_arr << item['title']
     end
-    Mailer.wangyi(['syf@huantengsmart.com', 'accw@venturepharm.net'], news_title_arr).deliver_now
+    Mailer.wangyi(['syf@huantengsmart.com', 'accw@venturepharm.net', 'lishaohua@kangaiweishi.com'], news_title_arr).deliver_now
   end
 end
