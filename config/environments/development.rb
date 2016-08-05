@@ -26,7 +26,7 @@ Rails.application.configure do
   password:             Errbit::Config.smtp_password,
   authentication:       Errbit::Config.smtp_authentication,
   enable_starttls_auto: false,
-  ssl: true,
+  ssl: false,
   openssl_verify_mode: 'none'
 }
   # Print deprecation notices to the Rails logger.
