@@ -12,7 +12,7 @@
 
       Airbrake.configure do |config|
         config.environment = :production
-        c.ignore_environments = [:test, :development]
+        config.ignore_environments = [:test, :development]
         config.host = '#{request.base_url}'
         config.project_id = 666
         config.project_key = '#{app.api_key}'
