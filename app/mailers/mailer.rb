@@ -29,7 +29,8 @@ class Mailer < ActionMailer::Base
   def err_notification(error_report)
     @notice   = NoticeDecorator.new error_report.notice
     @app      = AppDecorator.new error_report.app
-
+    # hf不发邮件
+    return if @notice.message && @notice.message.truncate(50).include?('hf指令监测报告')
     count = error_report.problem.notices_count
     count = count > 1 ? "(#{count}) " : ""
 
